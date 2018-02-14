@@ -1,4 +1,5 @@
 const path = require('path');
+const { HotModuleReplacementPlugin } = require('webpack');
 
 module.exports = {
   resolve: {
@@ -14,7 +15,6 @@ module.exports = {
     rules: [{ test: /\.ts?$/, loader: 'ts-loader' }]
   },
   devServer: {
-    host: '0.0.0.0',
     port: 3000,
     contentBase: path.join(__dirname, 'src'),
     stats: {
@@ -24,6 +24,9 @@ module.exports = {
       errors: true,
       errorDetails: true
     },
-    overlay: true
-  }
+    overlay: true,
+    hot: true,
+    inline: true
+  },
+  plugins: [new HotModuleReplacementPlugin()]
 };
