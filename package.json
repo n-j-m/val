@@ -1,0 +1,28 @@
+{
+  "name": "val",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server",
+    "tsc": "tsc",
+    "lint": "tslint -c tslint.json 'src/**/*.ts' -e 'src/**/*.d.ts' --fix",
+    "build:clean": "rm -r dist",
+    "build:webpack": "webpack",
+    "build:html": "cp src/index.html dist/",
+    "build": "npm run build:clean && npm run build:webpack && npm run build:html",
+    "publish": "gh-pages -d dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gh-pages": "^1.1.0",
+    "prettier": "^1.10.2",
+    "ts-loader": "^3.5.0",
+    "typescript": "^2.7.1",
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.1"
+  }
+}
